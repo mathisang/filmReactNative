@@ -14,7 +14,7 @@ export default function ListResults({movies}) {
                 key={item.id.toString()} 
                 movieTitle={item.title} 
                 releaseDate={item.release_date}
-                moviePicture={item.poster_path}
+                posterUrl={item.poster_path}
               />}
           />
         </SafeAreaView>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 
-export default function Result({movieTitle, releaseDate, moviePicture}) {
+export default function Result({movieTitle, releaseDate, moviePicture, posterUrl}) {
   return (
     <TouchableOpacity>
       <View style={styles.main_container}>
 
         <View style={styles.image}>
-          <Image style={styles.moviePicture} resizeMode={'contain'} source={{uri : moviePicture}}/>
+          <Image style={styles.moviePicture} resizeMode={'contain'} source={{uri : 'https://image.tmdb.org/t/p/w500/'+posterUrl}}/>
         </View>
 
         <View style={styles.movieDescription}>
