@@ -4,7 +4,7 @@ const BASE_URL = "https://api.themoviedb.org/3/";
 export const getMoviesFromApiAsync = async (queryBody, pageNum) => {
     try {
         const body = queryBody && queryBody.length ? "'"+queryBody+"'" : null;
-        console.log(BASE_URL+'search/movie?api_key='+API_KEY+"&query="+body+"&page="+pageNum+'&language="fr-FR"');
+        // console.log(BASE_URL+'search/movie?api_key='+API_KEY+"&query="+body+"&page="+pageNum+'&language="fr-FR"');
         let response = await fetch(
             BASE_URL+'search/movie?api_key='+API_KEY+"&query="+body+"&page="+pageNum+'&language="fr-FR"',
             {

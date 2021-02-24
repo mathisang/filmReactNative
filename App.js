@@ -6,20 +6,19 @@ import data from './src/helpers/filmDatas';
 import {ActivityIndicator} from "react-native";
 
 export default function App() {
-  const [searchText, setSearchText] = useState("texte");
+  const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [movies, setMovies] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsloading] = useState(false);
 
-
-
   const getSearchedMovies = (searchedText) => {
-    const newMovies = data.filter(movie => movie.title.toLowerCase().includes(searchedText.toLowerCase()));
-    setMovies(newMovies);
+    // const newMovies = data.filter(movie => movie.title.toLowerCase().includes(searchedText.toLowerCase()));
+    // setMovies(newMovies);
+    fetchMovies(searchedText, currentPage);
   }
 
-  const fetchMovies = () => {
+  const fetchMovies = (searchText, currentPage) => {
     setIsloading(true);
     getMoviesFromApiAsync(searchText, currentPage).then(moviesJson => {
       console.log(moviesJson);
@@ -30,10 +29,9 @@ export default function App() {
   }
 
   useEffect(()=>{
-    fetchMovies();
+    fetchMovies(searchText, currentPage);
   }, [])
 
-  console.log(movies);
   return (
     <>
       <Search onSearch={(searchedText) => getSearchedMovies(searchedText)} />
